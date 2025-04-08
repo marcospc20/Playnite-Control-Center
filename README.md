@@ -23,6 +23,8 @@ A interface do Playnite Control Center é intuitiva e inspirada em designs moder
 - **Grade de Jogos**: Uma subseção que aparece ao selecionar 'Jogos', com opções para retornar ao jogo ou fechá-lo.
 - **Navegação Sonora**: Cada movimento entre botões ou seleções é acompanhado por sons característicos, criando uma experiência imersiva.
 
+### Screenshots
+
 O design é limpo, com foco em usabilidade, e pode ser personalizado ou expandido com mais funcionalidades no futuro.
 
 ## Instalação
