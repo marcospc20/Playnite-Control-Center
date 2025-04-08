@@ -1,0 +1,279 @@
+<Window x:Class="PlayniteControlCenter.OverlayWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:PlayniteControlCenter"
+        WindowStyle="None" AllowsTransparency="True" Topmost="True"
+        Background="#CC000000" Height="1080" Width="1920"
+        WindowStartupLocation="Manual" Left="0" Top="0">
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+    </Window.Resources>
+    <Grid>
+        <!-- Botões principais (Home UI) -->
+        <StackPanel Orientation="Horizontal" Margin="0,0,0,75" 
+                    HorizontalAlignment="Center" VerticalAlignment="Bottom">
+            <!-- Botão Início -->
+            <StackPanel Width="150" Orientation="Vertical" Margin="10,0">
+                <TextBlock HorizontalAlignment="Center" FontFamily="Segoe UI Light" FontSize="18" Foreground="White" Text="Início" TextTrimming="CharacterEllipsis" Margin="0,0,0,10">
+                    <TextBlock.Style>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="Opacity" Value="0"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName=ButtonInicio, Path=IsFocused}" Value="True">
+                                    <Setter Property="Opacity" Value="1"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+                <Button x:Name="ButtonInicio" Width="58" Height="58" Background="Transparent" FocusVisualStyle="{x:Null}" Click="ButtonInicio_Click">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Grid>
+                                <Border x:Name="MaskInicio" Background="Transparent" CornerRadius="58"/>
+                                <Image x:Name="WhiteIconInicio" Height="54" Source="Images/PS5/ControlCenter/ButtonInicio.png" Stretch="Uniform"/>
+                                <Image x:Name="DarkIconInicio" Height="54" Source="Images/PS5/ControlCenter/ButtonInicioOn.png" Stretch="Uniform" Visibility="Collapsed"/>
+                                <Border x:Name="MainBorderInicio" Margin="-6" BorderThickness="3" CornerRadius="58" BorderBrush="White" Visibility="Hidden"/>
+                            </Grid>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsFocused" Value="True">
+                                    <Setter TargetName="MainBorderInicio" Property="Visibility" Value="Visible"/>
+                                    <Setter TargetName="MaskInicio" Property="Background" Value="#eeeeee"/>
+                                    <Setter TargetName="WhiteIconInicio" Property="Visibility" Value="Collapsed"/>
+                                    <Setter TargetName="DarkIconInicio" Property="Visibility" Value="Visible"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            </StackPanel>
+
+            <!-- Botão Games -->
+            <StackPanel Width="150" Orientation="Vertical" Margin="10,0">
+                <TextBlock HorizontalAlignment="Center" FontFamily="Segoe UI Light" FontSize="18" Foreground="White" Text="Games" TextTrimming="CharacterEllipsis" Margin="0,0,0,10">
+                    <TextBlock.Style>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="Opacity" Value="0"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName=ButtonGames, Path=IsFocused}" Value="True">
+                                    <Setter Property="Opacity" Value="1"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+                <Button x:Name="ButtonGames" Width="58" Height="58" Background="Transparent" FocusVisualStyle="{x:Null}" Click="ButtonGames_Click">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Grid>
+                                <Border x:Name="MaskGames" Background="Transparent" CornerRadius="58"/>
+                                <Image x:Name="WhiteIconGames" Height="54" Source="Images/PS5/ControlCenter/ButtonGame.png" Stretch="Uniform"/>
+                                <Image x:Name="DarkIconGames" Height="54" Source="Images/PS5/ControlCenter/ButtonGameOn.png" Stretch="Uniform" Visibility="Collapsed"/>
+                                <Border x:Name="MainBorderGames" Margin="-6" BorderThickness="3" CornerRadius="58" BorderBrush="White" Visibility="Hidden"/>
+                            </Grid>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsFocused" Value="True">
+                                    <Setter TargetName="MainBorderGames" Property="Visibility" Value="Visible"/>
+                                    <Setter TargetName="MaskGames" Property="Background" Value="#eeeeee"/>
+                                    <Setter TargetName="WhiteIconGames" Property="Visibility" Value="Collapsed"/>
+                                    <Setter TargetName="DarkIconGames" Property="Visibility" Value="Visible"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            </StackPanel>
+
+            <!-- Botão Volume -->
+            <StackPanel Width="150" Orientation="Vertical" Margin="10,0">
+                <TextBlock HorizontalAlignment="Center" FontFamily="Segoe UI Light" FontSize="18" Foreground="White" Text="Volume" TextTrimming="CharacterEllipsis" Margin="0,0,0,10">
+                    <TextBlock.Style>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="Opacity" Value="0"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName=ButtonVolume, Path=IsFocused}" Value="True">
+                                    <Setter Property="Opacity" Value="1"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+                <Button x:Name="ButtonVolume" Width="58" Height="58" Background="Transparent" FocusVisualStyle="{x:Null}" Click="ButtonVolume_Click">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Grid>
+                                <Border x:Name="MaskVolume" Background="Transparent" CornerRadius="58"/>
+                                <Image x:Name="WhiteIconVolume" Height="54" Source="Images/PS5/ControlCenter/ButtonVolume.png" Stretch="Uniform"/>
+                                <Image x:Name="DarkIconVolume" Height="54" Source="Images/PS5/ControlCenter/ButtonVolumeOn.png" Stretch="Uniform" Visibility="Collapsed"/>
+                                <Border x:Name="MainBorderVolume" Margin="-6" BorderThickness="3" CornerRadius="58" BorderBrush="White" Visibility="Hidden"/>
+                            </Grid>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsFocused" Value="True">
+                                    <Setter TargetName="MainBorderVolume" Property="Visibility" Value="Visible"/>
+                                    <Setter TargetName="MaskVolume" Property="Background" Value="#eeeeee"/>
+                                    <Setter TargetName="WhiteIconVolume" Property="Visibility" Value="Collapsed"/>
+                                    <Setter TargetName="DarkIconVolume" Property="Visibility" Value="Visible"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            </StackPanel>
+
+            <!-- Botão User -->
+            <StackPanel Width="150" Orientation="Vertical" Margin="10,0">
+                <TextBlock HorizontalAlignment="Center" FontFamily="Segoe UI Light" FontSize="18" Foreground="White" Text="User" TextTrimming="CharacterEllipsis" Margin="0,0,0,10">
+                    <TextBlock.Style>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="Opacity" Value="0"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName=ButtonUser, Path=IsFocused}" Value="True">
+                                    <Setter Property="Opacity" Value="1"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+                <Button x:Name="ButtonUser" Width="58" Height="58" Background="Transparent" FocusVisualStyle="{x:Null}" Click="ButtonUser_Click">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Grid>
+                                <Border x:Name="MaskUser" Background="Transparent" CornerRadius="58"/>
+                                <Image x:Name="AvatarImage" Height="54" Source="Images/Profile/Avatar.png" Stretch="Uniform"/>
+                                <Border x:Name="MainBorderUser" Margin="-6" BorderThickness="3" CornerRadius="58" BorderBrush="White" Visibility="Hidden"/>
+                            </Grid>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsFocused" Value="True">
+                                    <Setter TargetName="MainBorderUser" Property="Visibility" Value="Visible"/>
+                                    <Setter TargetName="MaskUser" Property="Background" Value="#eeeeee"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            </StackPanel>
+
+            <!-- Botão Power -->
+            <StackPanel Width="150" Orientation="Vertical" Margin="10,0">
+                <TextBlock HorizontalAlignment="Center" FontFamily="Segoe UI Light" FontSize="18" Foreground="White" Text="Power" TextTrimming="CharacterEllipsis" Margin="0,0,0,10">
+                    <TextBlock.Style>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="Opacity" Value="0"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName=ButtonPower, Path=IsFocused}" Value="True">
+                                    <Setter Property="Opacity" Value="1"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+                <Button x:Name="ButtonPower" Width="58" Height="58" Background="Transparent" FocusVisualStyle="{x:Null}" Click="ButtonPower_Click">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Grid>
+                                <Border x:Name="MaskPower" Background="Transparent" CornerRadius="58"/>
+                                <Image x:Name="WhiteIconPower" Height="54" Source="Images/PS5/ControlCenter/ButtonPower.png" Stretch="Uniform"/>
+                                <Image x:Name="DarkIconPower" Height="54" Source="Images/PS5/ControlCenter/ButtonPowerOn.png" Stretch="Uniform" Visibility="Collapsed"/>
+                                <Border x:Name="MainBorderPower" Margin="-6" BorderThickness="3" CornerRadius="58" BorderBrush="White" Visibility="Hidden"/>
+                            </Grid>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsFocused" Value="True">
+                                    <Setter TargetName="MainBorderPower" Property="Visibility" Value="Visible"/>
+                                    <Setter TargetName="MaskPower" Property="Background" Value="#eeeeee"/>
+                                    <Setter TargetName="WhiteIconPower" Property="Visibility" Value="Collapsed"/>
+                                    <Setter TargetName="DarkIconPower" Property="Visibility" Value="Visible"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            </StackPanel>
+        </StackPanel>
+
+        <!-- GameGrid -->
+        <Grid x:Name="GameGrid" Margin="0,0,950,190" HorizontalAlignment="Right" VerticalAlignment="Bottom" Visibility="Collapsed">
+            <Border Width="400" CornerRadius="20">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Color="#FF1A1A1A" Offset="0"/>
+                        <GradientStop Color="#FF3A3A3A" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+                <Grid Margin="10">
+                    <TextBlock Margin="10,5,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Segoe UI Light" FontSize="26" Foreground="White" Opacity="0.7" Text="Game Options"/>
+                    <StackPanel Margin="0,60,0,10" Orientation="Vertical">
+                        <!-- Voltar ao Game -->
+                        <Grid Margin="0,0,0,10">
+                            <Border x:Name="ReturnGameBorder" Margin="20,0,0,0" BorderThickness="3" CornerRadius="10" BorderBrush="Transparent">
+                                <Button x:Name="ReturnToGameButton" Background="Transparent" BorderThickness="0" FocusVisualStyle="{x:Null}" Click="ReturnToGameButton_Click" Height="40" Width="350">
+                                    <Button.Template>
+                                        <ControlTemplate TargetType="Button">
+                                            <Grid>
+                                                <Image x:Name="ReturnGameOff" Source="Images/PS5/ControlCenter/ButtonReturnGame.png" Width="32" Height="32" HorizontalAlignment="Right" Visibility="Visible"/>
+                                                <Image x:Name="ReturnGameOn" Source="Images/PS5/ControlCenter/ButtonReturnGameOn.png" Width="32" Height="32" HorizontalAlignment="Right" Visibility="Collapsed"/>
+                                                <TextBlock Margin="0,0,40,0" FontFamily="Segoe UI" FontSize="20" Foreground="White" Text="Voltar ao Game" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                            </Grid>
+                                            <ControlTemplate.Triggers>
+                                                <Trigger Property="IsFocused" Value="True">
+                                                    <Setter TargetName="ReturnGameOff" Property="Visibility" Value="Collapsed"/>
+                                                    <Setter TargetName="ReturnGameOn" Property="Visibility" Value="Visible"/>
+                                                </Trigger>
+                                            </ControlTemplate.Triggers>
+                                        </ControlTemplate>
+                                    </Button.Template>
+                                </Button>
+                            </Border>
+                            <Border Margin="20,0,0,0" BorderThickness="3" CornerRadius="10" BorderBrush="White" Visibility="{Binding ElementName=ReturnToGameButton, Path=IsFocused, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                        </Grid>
+                        <!-- Fechar Game -->
+                        <Grid Margin="0,0,0,0">
+                            <Border x:Name="CloseGameBorder" Margin="20,0,0,0" BorderThickness="3" CornerRadius="10" BorderBrush="Transparent">
+                                <Button x:Name="CloseGameButton" Background="Transparent" BorderThickness="0" FocusVisualStyle="{x:Null}" Click="CloseGameButton_Click" Height="40" Width="350">
+                                    <Button.Template>
+                                        <ControlTemplate TargetType="Button">
+                                            <Grid>
+                                                <Image x:Name="CloseGameOff" Source="Images/PS5/ControlCenter/ButtonCloseGame.png" Width="32" Height="32" HorizontalAlignment="Right" Visibility="Visible"/>
+                                                <Image x:Name="CloseGameOn" Source="Images/PS5/ControlCenter/ButtonCloseGameOn.png" Width="32" Height="32" HorizontalAlignment="Right" Visibility="Collapsed"/>
+                                                <TextBlock Margin="0,0,40,0" FontFamily="Segoe UI" FontSize="20" Foreground="White" Text="Fechar Game" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                            </Grid>
+                                            <ControlTemplate.Triggers>
+                                                <Trigger Property="IsFocused" Value="True">
+                                                    <Setter TargetName="CloseGameOff" Property="Visibility" Value="Collapsed"/>
+                                                    <Setter TargetName="CloseGameOn" Property="Visibility" Value="Visible"/>
+                                                </Trigger>
+                                            </ControlTemplate.Triggers>
+                                        </ControlTemplate>
+                                    </Button.Template>
+                                </Button>
+                            </Border>
+                            <Border Margin="20,0,0,0" BorderThickness="3" CornerRadius="10" BorderBrush="White" Visibility="{Binding ElementName=CloseGameButton, Path=IsFocused, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                        </Grid>
+                    </StackPanel>
+                </Grid>
+            </Border>
+            <Grid.Style>
+                <Style TargetType="Grid">
+                    <Setter Property="Opacity" Value="0"/>
+                    <Style.Triggers>
+                        <Trigger Property="Visibility" Value="Visible">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:0.15"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetProperty="Opacity" From="1" To="0" Duration="0:0:0.15"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Grid.Style>
+        </Grid>
+    </Grid>
+</Window>
